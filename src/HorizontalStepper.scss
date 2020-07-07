@@ -45,7 +45,7 @@
 .stepper-box {
   background-color: white;
   @include shadow(1);
-  min-height: 200px;
+  min-height: 160px;
   .top {
     .stepper-button-top {
       z-index: 20;
@@ -57,8 +57,8 @@
       align-items: center;
       justify-content: space-between;
       &.next {
-        border: 2px solid #3383c8;
-        color: #3383c8;
+        border: 2px solid #9D2449;
+        color: #9D2449;
         right: 1%;
         &.deactivated {
           border: 2px solid #cccccc !important;
@@ -118,14 +118,14 @@
           }
         }
         .circle {
-          margin-bottom: 1rem;
+          margin: 1rem 0;
           padding: 0 1rem;
           background-color: white;
           i {
-            background-color: #3383c8;
+            background-color: #9D2449;
             color: #fff;
             border-radius: 100rem;
-            padding: 1rem;
+            padding: .5rem;
           }
         }
         .step-title {
@@ -171,7 +171,7 @@
       align-items: center;
       justify-content: space-between;
       &.next {
-        background-color: #3383c8;
+        background-color: #9D2449;
         color: white;
         @include shadow(1);
         &.deactivated {
