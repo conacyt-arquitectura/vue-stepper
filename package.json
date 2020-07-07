@@ -67,7 +67,7 @@
     "file-loader": "^0.9.0",
     "jest": "^22.4.4",
     "jest-serializer-vue": "^0.3.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.12.0",
     "sass-loader": "^6.0.7",
     "url-loader": "^0.5.8",
     "vue-color": "^2.4.6",
