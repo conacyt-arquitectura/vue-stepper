@@ -36,7 +36,7 @@
                 <component v-else :is="steps[currentStep.index].component" :clickedNext="nextButton[currentStep.name]" @can-continue="proceed" @change-next="changeNextBtnValue" :current-step="currentStep"></component>
             </transition>
         </div>
-        <div :class="['bottom', (currentStep.index > 0) ? '' : 'only-next']">
+        <div v-if="!hideFooter" :class="['bottom', (currentStep.index > 0) ? '' : 'only-next']">
             <div v-if="currentStep.index > 0" class="stepper-button previous" @click="backStep()">
                 <i class="material-icons">keyboard_arrow_left</i>
                 <span>{{ 'back' | translate(locale) }}</span>
@@ -94,6 +94,14 @@ export default {
     reset: {
       type: Boolean,
       default: false
+    },
+    hideFooter: {
+      type: Boolean,
+      default: false
+    },
+    initialStep: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -203,7 +211,12 @@ export default {
 
     init() {
       // Initiate stepper
-      this.activateStep(0);
+      if (this.initialStep >= 0 && this.initialStep < this.steps.length) {
+        this.activateStep(this.initialStep);
+      } else {
+        this.activateStep(0);
+      }
+
       this.steps.forEach(step => {
         this.nextButton[step.name] = false;
       });
@@ -229,7 +242,7 @@ export default {
     }
   },
 
-  created() {
+  beforeMount() {
     this.init();
   }
 };
