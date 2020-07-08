@@ -16,8 +16,8 @@
                             </i>
                         </div>
                         <div class="step-title">
-                            <h4>{{step.title}}</h4>
-                            <h5 class="step-subtitle">{{step.subtitle}}</h5>
+                            <h5>{{step.title}}</h5>
+                            <h6 class="step-subtitle">{{step.subtitle}}</h6>
                         </div>
                     </div>
                 </template>
