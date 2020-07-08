@@ -43,7 +43,7 @@
             </div>
             <div :class="['stepper-button next', !canContinue ? 'deactivated' : '']" @click="nextStep()">
                 <span>{{ (finalStep) ? 'finish' : 'next' | translate(locale) }}</span>
-                <i class="material-icons">keyboard_arrow_right</i>
+                <font-awesome-icon :icon="iconNext" />
             </div>
         </div>
     </div>
@@ -51,12 +51,18 @@
 
 <script>
 import translations from "./Translations.js";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   filters: {
     translate: function(value, locale) {
       return translations[locale][value];
     }
+  },
+
+  components: {
+    FontAwesomeIcon
   },
 
   props: {
@@ -112,7 +118,8 @@ export default {
       nextButton: {},
       canContinue: false,
       finalStep: false,
-      keepAliveData: this.keepAlive
+      keepAliveData: this.keepAlive,
+      iconNext: faSpinner
     };
   },
 
