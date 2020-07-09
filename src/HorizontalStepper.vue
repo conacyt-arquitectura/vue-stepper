@@ -5,7 +5,7 @@
             <div class="steps-wrapper">
                 <template v-if="topButtons">
                     <div v-if="currentStep.index > 0" class="stepper-button-top previous" @click="backStep()">
-                        <i class="material-icons">keyboard_arrow_left</i>
+                        <font-awesome-icon class="icons" :icon="iconBack" />
                     </div>
                 </template>
                 <template v-for="(step, index) in steps">
@@ -16,13 +16,13 @@
                             </i>
                         </div>
                         <div class="step-title">
-                            <h5>{{step.title}}</h5>
-                            <h6 class="step-subtitle">{{step.subtitle}}</h6>
+                            <h6>{{step.title}}</h6>
+                            <p class="step-subtitle">{{step.subtitle}}</p>
                         </div>
                     </div>
                 </template>
                 <div v-if="topButtons" :class="['stepper-button-top next', !canContinue ? 'deactivated' : '']" @click="nextStep()">
-                    <i class="material-icons">keyboard_arrow_right</i>
+                    <font-awesome-icon class="icons" :icon="iconNext" />
                 </div>
             </div>
         </div>
@@ -38,12 +38,12 @@
         </div>
         <div v-if="!hideFooter" :class="['bottom', (currentStep.index > 0) ? '' : 'only-next']">
             <div v-if="currentStep.index > 0" class="stepper-button previous" @click="backStep()">
-                <i class="material-icons">keyboard_arrow_left</i>
-                <span>{{ 'back' | translate(locale) }}</span>
+                <font-awesome-icon class="icons" :icon="iconBack" />
+                <span class="pl">{{ 'back' | translate(locale) }}</span>
             </div>
             <div :class="['stepper-button next', !canContinue ? 'deactivated' : '']" @click="nextStep()">
-                <span>{{ (finalStep) ? 'finish' : 'next' | translate(locale) }}</span>
-                <font-awesome-icon :icon="iconNext" />
+                <span class="pr">{{ (finalStep) ? 'finish' : 'next' | translate(locale) }}</span>
+                <font-awesome-icon class="icons" :icon="iconNext" />
             </div>
         </div>
     </div>
@@ -52,7 +52,14 @@
 <script>
 import translations from "./Translations.js";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faInfo } from '@fortawesome/free-solid-svg-icons'
+import { faFile } from '@fortawesome/free-solid-svg-icons'
+import { faList } from '@fortawesome/free-solid-svg-icons'
+import { faPencil } from '@fortawesome/free-solid-svg-icons'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   filters: {
@@ -119,7 +126,8 @@ export default {
       canContinue: false,
       finalStep: false,
       keepAliveData: this.keepAlive,
-      iconNext: faSpinner
+      iconNext: faAngleRight,
+      iconBack: faAngleLeft
     };
   },
 
@@ -259,21 +267,17 @@ export default {
 
 </style>
 <style scoped>
-/* fallback */
-@font-face {
-  font-family: "Material Icons";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Material Icons"), local("MaterialIcons-Regular"),
-    url(https://fonts.gstatic.com/s/materialicons/v17/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2)
-      format("woff2");
+.pr {
+  padding-right: 0.25rem;
 }
-
-.material-icons {
-  font-family: "Material Icons";
+.pl {
+  padding-left: 0.25rem;
+}
+.icons {
+  font-family: "FontAwesome";
   font-weight: normal;
   font-style: normal;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
