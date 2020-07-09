@@ -5,13 +5,13 @@
             <div class="steps-wrapper">
                 <template v-if="topButtons">
                     <div v-if="currentStep.index > 0" class="stepper-button-top previous" @click="backStep()">
-                        <font-awesome-icon class="icons" :icon="iconBack" />
+                        <font-awesome-icon class="icon" :icon="iconBack" />
                     </div>
                 </template>
                 <template v-for="(step, index) in steps">
                     <div :class="['step', isStepActive(index, step)]" :key="index" :style="{width: `${100 / steps.length}%`}">
                         <div class="circle">
-                            <font-awesome-icon class="icons" :icon="step.completed ? iconCheck : step.icon" />
+                            <font-awesome-icon class="icon" :icon="step.completed ? iconCheck : step.icon" />
                         </div>
                         <div class="step-title">
                             <h6>{{step.title}}</h6>
@@ -20,7 +20,7 @@
                     </div>
                 </template>
                 <div v-if="topButtons" :class="['stepper-button-top next', !canContinue ? 'deactivated' : '']" @click="nextStep()">
-                    <font-awesome-icon class="icons" :icon="iconNext" />
+                    <font-awesome-icon class="icon" :icon="iconNext" />
                 </div>
             </div>
         </div>
@@ -36,12 +36,12 @@
         </div>
         <div v-if="!hideFooter" :class="['bottom', (currentStep.index > 0) ? '' : 'only-next']">
             <div v-if="currentStep.index > 0" class="stepper-button previous" @click="backStep()">
-                <font-awesome-icon class="icons" :icon="iconBack" />
+                <font-awesome-icon class="icon" :icon="iconBack" />
                 <span class="pl">{{ 'back' | translate(locale) }}</span>
             </div>
             <div :class="['stepper-button next', !canContinue ? 'deactivated' : '']" @click="nextStep()">
                 <span class="pr">{{ (finalStep) ? 'finish' : 'next' | translate(locale) }}</span>
-                <font-awesome-icon class="icons" :icon="iconNext" />
+                <font-awesome-icon class="icon" :icon="iconNext" />
             </div>
         </div>
     </div>
@@ -269,7 +269,7 @@ export default {
 .pl {
   padding-left: 0.25rem;
 }
-.icons {
+.icon {
   font-family: "FontAwesome";
   font-weight: normal;
   font-style: normal;

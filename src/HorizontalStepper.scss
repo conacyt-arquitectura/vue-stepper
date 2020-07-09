@@ -56,17 +56,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border: 2px solid #9D2449;
+      color: #9D2449;
+      height: 40px;
+      width: 40px;
       &.next {
-        border: 2px solid #9D2449;
-        color: #9D2449;
-        height: 40px;
-        width: 40px;
-        right: 1%;
-        &:hover,
-        &.hover {
-          border: 2px solid darken(#9D2449,15%);
-          color: darken(#9D2449,15%);
-        }
+        right: 1%;        
         &.deactivated {
           border: 2px solid #9D2449 !important;
           color: #9D2449 !important;
@@ -75,12 +70,12 @@
         }
       }
       &.previous {
-        color: #9D2449;
         left: 1%;
-        &:hover,
-        &.hover {
-          color: darken(#9D2449,15%);
-        }
+      }
+      &:hover,
+      &.hover {
+        border: 2px solid darken(#9D2449,15%);
+        color: darken(#9D2449,15%);
       }
     }
     display: flex;
@@ -116,28 +111,24 @@
         @include breakpoint(xs) {
           width: 100% !important;
         }
+        .circle {
+          background-color: #9D2449;
+          border-radius: 100rem;
+          color: #fff;
+          height: 40px;
+          width: 40px;
+          padding: .5rem;
+          margin: 1rem 0;
+        }
         &.deactivated {
           @include breakpoint(xs) {
             display: none;
           }
           .circle {
-            i {
-              background-color: #bbbbbb !important;
-            }
+            background-color: #bbbbbb !important;
           }
           .step-title {
             opacity: .35;
-          }
-        }
-        .circle {
-          margin: 1rem 0;
-          padding: 0 1rem;
-          background-color: white;
-          i {
-            background-color: #9D2449;
-            color: #fff;
-            border-radius: 100rem;
-            padding: .5rem;
           }
         }
         .step-title {
@@ -204,9 +195,11 @@
         }
       }
       &.previous {
+        border: 2px solid #9D2449;
         color: #9D2449;
         &:hover,
         &.hover {
+          border: 2px solid darken(#9D2449,15%);
           color: darken(#9D2449,15%);
         }
       }
