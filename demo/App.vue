@@ -66,6 +66,7 @@
 
 <script>
     import HorizontalStepper from '../src/HorizontalStepper.vue';
+    import { faPencilAlt, faInfo, faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
     import StepOne from './StepOne.vue';
     import StepTwo from './StepTwo.vue';
@@ -84,7 +85,7 @@
                 teamUrl: teamUrl,
                 demoSteps: [
                     {
-                        icon: 'mail',
+                        icon: faPencilAlt,
                         name: 'first',
                         title: 'Sample title 1',
                         subtitle: 'Subtitle sample',
@@ -93,7 +94,7 @@
 
                     },
                     {
-                        icon: 'report_problem',
+                        icon: faInfo,
                         name: 'second',
                         title: 'Sample title 2',
                         subtitle: 'Subtitle sample',
@@ -101,7 +102,7 @@
                         completed: false
                     },
                     {
-                        icon: 'announcement',
+                        icon: faUserSecret,
                         name: 'third',
                         title: 'Sample title 3',
                         subtitle: 'Subtitle sample',

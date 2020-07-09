@@ -11,9 +11,7 @@
                 <template v-for="(step, index) in steps">
                     <div :class="['step', isStepActive(index, step)]" :key="index" :style="{width: `${100 / steps.length}%`}">
                         <div class="circle">
-                            <i class="material-icons md-18">
-                                {{ (step.completed) ? 'done' : step.icon }}
-                            </i>
+                            <font-awesome-icon class="icons" :icon="step.completed ? iconCheck : step.icon" />
                         </div>
                         <div class="step-title">
                             <h6>{{step.title}}</h6>
@@ -54,12 +52,9 @@ import translations from "./Translations.js";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
-import { faList } from '@fortawesome/free-solid-svg-icons'
-import { faPencil } from '@fortawesome/free-solid-svg-icons'
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   filters: {
@@ -86,13 +81,13 @@ export default {
       default: function() {
         return [
           {
-            icon: "mail",
+            icon: faFile,
             name: "first",
             title: "Sample title 1",
             subtitle: "Subtitle sample"
           },
           {
-            icon: "report_problem",
+            icon: faInfo,
             name: "second",
             title: "Sample title 2",
             subtitle: "Subtitle sample"
@@ -127,7 +122,8 @@ export default {
       finalStep: false,
       keepAliveData: this.keepAlive,
       iconNext: faAngleRight,
-      iconBack: faAngleLeft
+      iconBack: faAngleLeft,
+      iconCheck: faCheck
     };
   },
 
