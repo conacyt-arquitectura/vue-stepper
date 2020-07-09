@@ -1,11 +1,11 @@
 {
-  "name": "vue-stepper",
-  "version": "1.4.2",
-  "description": "Vue Stepper",
+  "name": "@conacyt/vue-stepper",
+  "version": "1.0.0",
+  "description": "Fork from Vue PygmySlowLoris/vue-stepper",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PygmySlowLoris/vue-stepper"
+    "url": "https://github.com/conacyt-arquitectura/vue-stepper"
   },
   "keywords": [
     "vue",
