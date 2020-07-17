@@ -37,6 +37,7 @@ npm install vue-stepper --save
 |  `subtitle`           | String    | Subtitle displayed below the title. |
 |  `component`           | Component    | Imported component that will be show on the content area of the step. |
 |  `completed`           | Boolean    | If step is completed or not. If `TRUE` a `done` material icon will replace the one given before. Only mark as completed when you want to let know the user that the previous step has been completed |
+| `initialStep`      | Number     | Init the componente in then initial step index |
 
 ## Events emitted by stepper
 
@@ -54,6 +55,7 @@ npm install vue-stepper --save
 | :---------------      | :-------  |
 |  `can-continue`           | By default the *next button* will be disabled until the event `can-continue` is triggered with an object containing the property `value`. `Value` accepts a boolean, if `true` next/finish button will be enabled if false disabled. On each next step `canContinue` variable will be set to false.|
 |  `change-next`           | With this event you can change de state of the `clickedNext` prop that each step has. Just emit it with the following payload `{nextBtnValue: boolean}` |
+| `perform-next`        | If need change to next component just emit without payload |
 
 ## Exposed props for step component
 | Properties            | Type      | Values     |
