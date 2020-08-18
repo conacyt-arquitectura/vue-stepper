@@ -14,7 +14,7 @@
                             <font-awesome-icon class="icon" :icon="step.completed ? iconCheck : step.icon" />
                         </div>
                         <div class="step-title">
-                            <h6>{{step.title}}</h6>
+                            <h5>{{step.title}}</h5>
                             <p class="step-subtitle">{{step.subtitle}}</p>
                         </div>
                     </div>
@@ -25,6 +25,7 @@
             </div>
         </div>
         <div class="content">
+          <div class="content-wrapper">
             <transition :enter-active-class="enterAnimation" :leave-active-class="leaveAnimation" mode="out-in">
                 <!--If keep alive-->
                 <keep-alive v-if="keepAliveData">
@@ -33,6 +34,7 @@
                 <!--If not show component and destroy it in each step change-->
                 <component v-else :is="steps[currentStep.index].component" :clickedNext="nextButton[currentStep.name]" @can-continue="proceed" @change-next="changeNextBtnValue" @perform-next="performNextBtn" :current-step="currentStep"></component>
             </transition>
+          </div>            
         </div>
         <div v-if="!hideFooter" :class="['bottom', (currentStep.index > 0) ? '' : 'only-next']">
             <div v-if="currentStep.index > 0" class="stepper-button previous" @click="backStep()">
